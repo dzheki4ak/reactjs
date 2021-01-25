@@ -30,7 +30,3 @@ const titleElement = (
 );
 
 ReactDOM.render(titleElement, rootElement);
-
-const calc = (a, b) => a + b;
-
-
