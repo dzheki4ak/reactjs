@@ -6,8 +6,8 @@ const rootElement = document.querySelector('#root');
 
 const renderSeconds = time => {
   const seconds = new Date(time).getSeconds();
-  // const minutes = new Date(time).getMinutes();
-  // const hours = new Date(time).getHours();
+  const minutes = new Date(time).getMinutes();
+  const hours = new Date(time).getHours();
   const backgroundColor = seconds % 2 === 0 ? '#fff' : '#000';
 
   const textColor = seconds % 2 !== 0 ? '#fff' : '#000';
@@ -19,8 +19,7 @@ const renderSeconds = time => {
 
   const element = (
     <div className="seconds" style={styles}>
-      {/* {hours}:{minutes}: */}
-        {seconds}
+      {hours}:{minutes}:{seconds}
     </div>
   );
 
