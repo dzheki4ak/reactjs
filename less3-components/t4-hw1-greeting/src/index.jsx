@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Greeting from './Greeting';
+import Greeting from './Greeting.jsx';
+import './index.scss';
 
 const rootElement = document.querySelector('#root');
 
