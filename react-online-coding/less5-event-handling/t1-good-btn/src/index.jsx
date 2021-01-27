@@ -9,4 +9,4 @@ const onClick = () => {
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<GoodButton class = "fancy-button" onClick={onClick}/>, rootElement)
+ReactDOM.render(<GoodButton onClick={onClick}/>, rootElement)
