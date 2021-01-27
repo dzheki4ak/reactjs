@@ -1,8 +1,12 @@
 import React from 'react';
 
-const GoodButton = props => {
+const GoodButton = () => {
   return (
-    <button className="fancy-button" onClick={props.onClick}></button>
+    <button className="fancy-button" 
+      onClick={() => alert('Good job!')}
+      >
+      Click me!
+    </button>
   );
 };
 
