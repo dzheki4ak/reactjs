@@ -3,9 +3,9 @@ import React from 'react';
 
 
 
-const RED = 'red';
-const GREEN = 'green';
-const BLUE = 'blue';
+const RED = '#f00';
+const GREEN = '#0f0';
+const BLUE = '#00f';
 
 
 class Colors extends React.Component {
