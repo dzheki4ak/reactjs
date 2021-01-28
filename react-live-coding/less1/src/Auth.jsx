@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from './Loggin';
+import Login from './Login';
 import Logout from './Logout';
 import Spinner from './Spinner';
 
