@@ -11,7 +11,7 @@ class Toggler extends React.Component {
   toggle = () => {
     this.state.text === 'Off' ?
     this.setState({ text: 'On' }) :
-    this.setState({ text: 'Off' });
+    this.setState({ text: 'Off' }); 
     }
 
 
