@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import Greeting from './Greeting';
+import Auth from './Auth';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Greeting />, rootElement);
+ReactDOM.render(<Auth />, rootElement);
