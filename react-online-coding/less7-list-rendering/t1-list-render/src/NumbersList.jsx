@@ -1,8 +1,6 @@
 import React from 'react';
 
-const numbers = [1, 2, 3, 4, 5];
-
-const NumbersList = () => {
+const NumbersList = ({numbers}) => {
   return (
     <ul>
       <li>{numbers[0]}</li>
