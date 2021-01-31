@@ -7,30 +7,38 @@ import Logout from './Logout';
 class Auth extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       isLoggedIn: false,
     };
   }
 
   handleLogin = () => {
-    this.setState({ isLoggedIn: true });
-  };
+    this.setState({
+      isLoggedIn: true,
+    });
+  }
 
   handleLogout = () => {
-    this.setState({ isLoggedIn: false });
-  };
+    this.setState({
+      isLoggedIn: false,
+    });
+  }
 
-  render(props) {
+  render() {
+    const isLoggedIn = this.state.isLoggedIn;
+    let button;
 
-      return (
+    if (isLoggedIn) {
+      button = <Logout onLogout={this.handleLogout} />;
+    } else {
+      button = <Login onLogin={this.handleLogin} />;
+    }
+
+    return (
       <div className="panel">
-        <Greeting isLoggedIn={this.state.isLoggedIn} />
-        {
-          this.state.isLoggedIn
-          ? (<button className="login btn" onClick={this.handleLogout}>Logout</button>)
-          : (<button className="logout btn" onClick={this.handleLogin}>Login</button>)
-        }
+        <Greeting isLoggedIn={isLoggedIn} />
+        {button}
       </div>
     );
   }
