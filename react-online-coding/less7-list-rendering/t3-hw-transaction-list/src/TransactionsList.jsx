@@ -1,5 +1,5 @@
 import React from 'react';
-import Transaction from './Transaction.jsx';
+import Transaction from './Transaction';
 
 const TransactionsList = ({ transactions }) => {
   return (
@@ -9,7 +9,6 @@ const TransactionsList = ({ transactions }) => {
       ))}
     </ul>
   );
-}
-
+};
 
 export default TransactionsList;
