@@ -9,5 +9,7 @@ const TransactionsList = ({ transactions }) => {
       ))}
     </ul>
   );
-};
+}
+
+
 export default TransactionsList;
