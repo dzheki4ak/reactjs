@@ -7,7 +7,7 @@ class Dimensions extends React.Component {
     const { innerWidth, innerHeight } = window;
     this.state = {
       width: innerWidth,
-      height: innerHeight,  
+      height: innerHeight,
     };
   }
 
@@ -25,6 +25,7 @@ class Dimensions extends React.Component {
   }
 
   render() {
+    document.title = `${this.state.width} x ${this.state.height}`
     return <div class="dimensions">{`${this.state.width}px - ${this.state.height}px`}</div>;
   }
 }
