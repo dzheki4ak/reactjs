@@ -3,7 +3,7 @@ import React from 'react';
 const Pagination = ({ goPrev, goNext, currentPage, totalItems, itemsPerPage }) => {
   const isPrevPageAvailable = currentPage > 1;
 
-  const isNextPageAvailable = totalItems >= 3; // todo
+  const isNextPageAvailable = currentPage < Math.ceil(totalItems / itemsPerPage); // todo
 
   return (
     <div className="pagination">
