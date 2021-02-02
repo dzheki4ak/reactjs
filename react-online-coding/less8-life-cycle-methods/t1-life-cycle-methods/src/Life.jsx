@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Life extends React.Component {
+class Life extends React.Component   {
   constructor(props) {
     super(props);
     console.log('constructor: good place to create state');
@@ -16,6 +16,7 @@ class Life extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('shouldComponentUpdate(nextProps, nextState): decide to render or not to render');
+    return true;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -24,7 +25,7 @@ class Life extends React.Component {
 
   render() {
     console.log('return React element to build DOM');
-    return null;
+    return <div>{this.props.number}</div>;
   }
 }
 
