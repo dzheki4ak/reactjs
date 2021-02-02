@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Life extends React.Component {
-
   constructor(props) {
     super(props);
     console.log('constructor: good place to create state');
@@ -9,6 +8,10 @@ class Life extends React.Component {
 
   componentDidMount() {
     console.log('componentDidMount: API calls, subscriptions');
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -19,15 +22,10 @@ class Life extends React.Component {
     console.log('componentDidUpdate(prevProps, prevState): some updates based on new props');
   }
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount(): cleanup before DOM related to component will be removed');
-  }
-
   render() {
     console.log('return React element to build DOM');
     return null;
   }
-
 }
 
 export default Life;
