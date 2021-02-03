@@ -5,7 +5,7 @@ class Dimensions extends React.Component {
   state = {
     width: null,
     height: null,
-  };
+  }; 
 
   componentDidMount() {
     window.addEventListener('resize', this.onResize);
