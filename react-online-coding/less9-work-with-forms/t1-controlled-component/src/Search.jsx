@@ -1,22 +1,25 @@
 import React from 'react';
 
 class Search extends React.Component {
-  state = { value: ''}
+  state = { value: '' };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
-      value: event.target.value
-    })
-  }
+      value: event.target.value,
+    });
+  };
+
+  onSearchClick = () => {
+    alert(`Search text: ${this.state.value}`);
+  };
 
   render() {
-
     // const inputText = document.querySelector('search__input');
     // console.log(inputText);
     return (
       <form className="search">
-        <input onChange={this.handleChange} type="text" className="search__input"/>
-        <button onClick={() => alert(`Search text: ${this.state.value}`)} className="search__button">
+        <input onChange={this.handleChange} type="text" className="search__input" />
+        <button onClick={this.onSearchClick} className="search__button">
           Search
         </button>
       </form>
