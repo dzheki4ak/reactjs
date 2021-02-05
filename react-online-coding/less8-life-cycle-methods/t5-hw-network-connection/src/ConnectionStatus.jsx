@@ -2,7 +2,7 @@ import React from 'react';
 
 class ConnectionStatus extends React.Component {
   state = {
-    status: 'status',
+    className: 'status',
   };
 
   componentDidMount() {
@@ -17,20 +17,21 @@ class ConnectionStatus extends React.Component {
 
   onOffline = () => {
     this.setState({
-      status: 'status status_offline',
+      className: 'status status_offline',
     });
   };
 
   onOnline = () => {
     this.setState({
-      status: 'status',
+      className: 'status',
     });
   };
 
   render() {
+    const className = this.state.className;
     return (
-      <div className={this.state.status}>
-        {this.state.status === 'status' ? 'online' : 'offline'}
+      <div className={className}>
+        {className === 'status' ? 'online' : 'offline'}
       </div>
     );
   }
