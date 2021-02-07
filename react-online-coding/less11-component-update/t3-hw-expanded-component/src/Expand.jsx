@@ -16,7 +16,7 @@ class Expand extends React.Component {
       <div className="app">
         <div className="expand border">
           <div className="expand__header">
-            <span className="expand__title">Some title</span>
+            <span className="expand__title">{this.props.title}</span>
             <button className="expand__toggle-btn" onClick={this.handleDialogState}>
               {!this.state.dialogOn ? (
                 <i className="fas fa-chevron-down"></i>
@@ -25,15 +25,14 @@ class Expand extends React.Component {
               )}
             </button>
           </div>
-          <div className="expand__content">
-            {!this.state.dialogOn
-            ? null
-            : (
+          {!this.state.dialogOn ? null : (
+            <div className="expand__content">
               <p>
                 Hooks are a new addition in React 16.8. They let you use state and other React
                 features without writing a className.
-              </p>)}
-          </div>
+              </p>
+            </div>
+          )}
         </div>
       </div>
     );

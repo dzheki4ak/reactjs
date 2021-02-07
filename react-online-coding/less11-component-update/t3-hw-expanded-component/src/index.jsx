@@ -5,4 +5,4 @@ import Expand from './Expand';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<Expand />, rootElement);
+ReactDOM.render(<Expand title="Some title"/>, rootElement);
