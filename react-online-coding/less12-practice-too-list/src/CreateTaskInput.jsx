@@ -34,7 +34,3 @@ class CreateTaskInput extends React.Component {
 }
 
 export default CreateTaskInput;
-
-// 1. Take text from input and
-// 2. Create task with this text { text: 'Taken text', done: false, id: ... }
-// 3. Add task object to the task list
