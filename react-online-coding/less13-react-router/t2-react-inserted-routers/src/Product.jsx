@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 const Product = ({match}) => {
   return (
     <div className="product">
-        {`Product is ${match.params.productId}`}
+        {match.params.productId}
     </div>
   )
 }
