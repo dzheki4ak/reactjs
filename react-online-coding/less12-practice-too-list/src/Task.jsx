@@ -1,9 +1,9 @@
 import React from 'react';
-import classNames from 'classnames';
+import className from 'classnames';
 
 const Task = ({ id, done, text, onChange, onDelete }) => {
   return (
-    <li className={classNames('list-item', { 'list-item_done': done })}>
+    <li className={className('list-item', { 'list-item_done': done })}>
       <input
         type="checkbox"
         className="list-item__checkbox"
@@ -11,7 +11,7 @@ const Task = ({ id, done, text, onChange, onDelete }) => {
         onChange={() => onChange(id)}
       />
       <span className="list-item__text">{text}</span>
-      <button onClick={() => onDelete(id)} className="list-item__delete-btn"></button>
+      <button className="list-item__delete-btn" onClick={() => onDelete(id)}></button>
     </li>
   );
 };

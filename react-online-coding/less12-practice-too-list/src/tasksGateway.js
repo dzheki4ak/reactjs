@@ -9,7 +9,7 @@ export const createTask = taskData => {
     body: JSON.stringify(taskData),
   }).then(response => {
     if (!response.ok) {
-      throw new Error('Failed to create task');
+      throw new Error('Faild to create task');
     }
   });
 };
@@ -21,7 +21,7 @@ export const fetchTasksList = () => {
         return res.json();
       }
     })
-    .then(tasklist => tasklist);
+    .then(tasksList => tasksList.map(({ _id, ...task }) => ({ id: _id, ...task })));
 };
 
 export const updateTask = (taskId, taskData) => {
@@ -33,7 +33,7 @@ export const updateTask = (taskId, taskData) => {
     body: JSON.stringify(taskData),
   }).then(response => {
     if (!response.ok) {
-      throw new Error('Failed to update task');
+      throw new Error('Faild to create task');
     }
   });
 };
@@ -43,7 +43,7 @@ export const deleteTask = taskId => {
     method: 'DELETE',
   }).then(response => {
     if (!response.ok) {
-      throw new Error('Failed to delete task');
+      throw new Error('Faild to delete task');
     }
   });
 };

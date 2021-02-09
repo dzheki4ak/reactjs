@@ -1,7 +1,7 @@
 import React from 'react';
-import Task from './Task';
 import CreateTaskInput from './CreateTaskInput';
-import { createTask, fetchTasksList, updateTask, deleteTask } from './tasksGateway';
+import Task from './Task';
+import { createTask, fetchTasksList, updateTask, deleteTask } from './tasksGateway.js';
 
 class TasksList extends React.Component {
   state = {
@@ -9,13 +9,13 @@ class TasksList extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchTasks();
+    this.hetchTasks();
   }
 
-  fetchTasks = () => {
-    fetchTasksList().then(taskslist => {
+  hetchTasks = () => {
+    fetchTasksList().then(tasksList => {
       this.setState({
-        tasks: taskslist,
+        tasks: tasksList,
       });
     });
   };
@@ -26,41 +26,40 @@ class TasksList extends React.Component {
       done: false,
     };
 
-    createTask(newTask).then(() => this.fetchTasks());
+    createTask(newTask).then(() => this.hetchTasks());
   };
 
-  handleTaskStatusChange = id => {
+  handleTasksStatusChange = id => {
     const { done, text } = this.state.tasks.find(task => task.id === id);
     const updatedTask = {
       text,
       done: !done,
     };
 
-    updateTask(id, updatedTask).then(() => this.fetchTasks());
+    updateTask(id, updatedTask).then(() => this.hetchTasks());
   };
 
-  handleTaskDeletion = id => {
-    deleteTask(id)
-      .then(() => this.fetchTasks());
+  handleTaskDelete = id => {
+    deleteTask(id).then(() => this.hetchTasks());
   };
 
   render() {
     const sortedList = this.state.tasks.slice().sort((a, b) => a.done - b.done);
 
     return (
-      <div className="todo-list">
+      <main className="todo-list">
         <CreateTaskInput onCreate={this.onCreate} />
         <ul className="list">
           {sortedList.map(task => (
             <Task
               key={task.id}
               {...task}
-              onChange={this.handleTaskStatusChange}
-              onDelete={this.handleTaskDeletion}
+              onChange={this.handleTasksStatusChange}
+              onDelete={this.handleTaskDelete}
             />
           ))}
         </ul>
-      </div>
+      </main>
     );
   }
 }
