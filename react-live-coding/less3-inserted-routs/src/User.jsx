@@ -1,72 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-class User extends React.Component {
-  // algo
-  // 1. create empty state
-  // 2. make http call on compDidMount and upd state
-  // 3. update render to show user data
-  // 3. handle UserIdChange
+const User = props => {
+  // in: init state
+  // out: array (staeValue, function to update state)
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      avatar: null,
-      name: null,
-      location: null,
-    };
-  }
+  const [userInfo, setUserInfo] = useState({
+    avatar: null,
+    name: null,
+    location: null,
+  });
 
-  componentDidMount() {
-    this.getUserData(this.props.match.params.userId);
-  }
+  const {userId} = useParams();
 
-  componentDidUpdate(prevProps) {
-      const currentUserId = this.props.match.params.userId;
-      if (prevProps.match.params.userId !== currentUserId)
-    this.getUserData(currentUserId)
-  }
+  // useEffect
+  // in: callback function, array
+  // out: undefined
 
-  // in - USERID
-  // out - promise or undefined
+  // callback function
+  // in: none
+  // out: undefined, another function(works when componet will unmount)
 
-  getUserData = userId => {
+  useEffect(() => {
+
     fetch(`https://api.github.com/users/${userId}`)
       .then(response => response.json())
       .then(userData => {
         const { avatar_url, name, location } = userData;
 
-        this.setState({
+        setUserInfo({
           avatar: avatar_url,
           name: name,
           location: location,
         });
-      })
+      });
+  }, [userId]);
 
-      // TODO make error handling
-  };
+  const { avatar, name, location } = userInfo;
 
-  render() {
-
-    const { avatar, name, location } = this.state;
-
-    if (!avatar || !name || !location) {
-        return null;
-    }
-
-    return (
-      <div className="user">
-        <img
-          alt="User Avatar"
-          src={avatar}
-          className="user__avatar"
-        />
-        <div className="user__info">
-          <span className="user__name">{name}</span>
-          <span className="user__location">{location}</span>
-        </div>
-      </div>
-    );
+  if (!avatar || !name || !location) {
+    return null;
   }
-}
+
+  return (
+    <div className="user">
+      <img alt="User Avatar" src={avatar} className="user__avatar" />
+      <div className="user__info">
+        <span className="user__name">{name}</span>
+        <span className="user__location">{location}</span>
+      </div>
+    </div>
+  );
+};
 
 export default User;
